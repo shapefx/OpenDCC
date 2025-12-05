@@ -241,11 +241,7 @@ if(USD_VERSION VERSION_GREATER_EQUAL 0.25.02)
          viewport/hydra_ext_render_session_api_schema.cpp)
 endif()
 
-if(DCC_BUILD_ARNOLD_SUPPORT)
-    qt5_add_resources(resources ${PROJECT_SOURCE_DIR}/icons/icons.qrc ${PROJECT_SOURCE_DIR}/icons/arnold_icons.qrc)
-else()
-    qt5_add_resources(resources ${PROJECT_SOURCE_DIR}/icons/icons.qrc)
-endif()
+qt5_add_resources(resources ${PROJECT_SOURCE_DIR}/icons/icons.qrc)
 
 qt5_add_resources(resources ${CMAKE_CURRENT_SOURCE_DIR}/ui/resources/stylesheets.qrc)
 

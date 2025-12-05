@@ -72,8 +72,4 @@ if(USD_VERSION VERSION_GREATER_EQUAL 0.22.05 AND DCC_PACKAGE_OPENDCC_USD_EDITOR_
     add_subdirectory(opendcc.usd_editor.canvas)
     add_subdirectory(opendcc.usd_editor.canvas.schema)
 endif()
-if(DCC_PACKAGE_OPENDCC_UI_RENDER_VIEW)
-    add_subdirectory(opendcc.ui.render_view)
-endif()
-
 add_subdirectory(opendcc.usd_editor.scene_indices)

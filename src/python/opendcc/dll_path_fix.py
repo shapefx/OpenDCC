@@ -11,7 +11,13 @@ import sys
 if sys.platform == "win32" and sys.version_info[0] >= 3 and sys.version_info[1] >= 8:
     import os
 
-    [os.add_dll_directory(p) for p in os.getenv("PATH").split(";") if p and os.path.exists(p)]
+    # similar to https://github.com/PixarAnimationStudios/OpenUSD/blob/dev/pxr/base/tf/__init__.py#L40-L45
+    import_paths = os.getenv("PATH", "")
+    for path in reversed(import_paths.split(os.pathsep)):
+        if os.path.exists(path) and path != ".":
+            abs_path = os.path.abspath(path)
+            os.add_dll_directory(abs_path)
+
     import ctypes.util as cu
 
     qt_path = cu.find_library("Qt5Core.dll")
